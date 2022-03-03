@@ -50,7 +50,10 @@ public class ViewController {
             throw new IllegalStateException("This shouldn't be!");
         }, viewClass.getSimpleName().substring(0, viewClass.getSimpleName().length() - 4));
     }
-
+    
+    /**
+     * Here we overwrite the main {@link Stage} to the wished {@link View} and showing it to the end-user.
+     */
     private <T> void loadAndShowView(Class<T> clazz, Callback<Class<?>, Object> controllerFactory, String title) {
 
         Parent root = loadView(clazz, controllerFactory);
@@ -62,7 +65,10 @@ public class ViewController {
         stage.setResizable(false);
         stage.show();
     }
-
+    
+    /**
+     * Here we are loading the wished {@link View} out of their corresponding FXML-file
+     */
     private <T> Parent loadView(Class<T> clazz, Callback<Class<?>, Object> controllerFactory) {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
