@@ -58,7 +58,7 @@ public class ViewController {
         try {
             return fxmlLoader.load();
         } catch (IOException e) {
-            throw new IllegalStateException(MessageFormat.format("FXML could not get loaded for class: {}", clazz), e);
+            throw new IllegalStateException(MessageFormat.format("FXML could not get loaded for class: {0}", clazz), e);
         }
     }
 
