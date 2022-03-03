@@ -5,6 +5,9 @@ import dev.luzifer.ui.ViewController;
 import dev.luzifer.user.PersonalToken;
 import javafx.scene.control.Alert;
 
+/**
+ * @see dev.luzifer.ui.view.View
+ */
 public class LoginViewModel implements ViewModel {
     
     // Does this belong here?

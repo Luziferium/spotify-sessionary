@@ -5,6 +5,9 @@ import dev.luzifer.ui.viewmodel.LoginViewModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * Our application representation
+ */
 public class Sessionary extends Application {
 
     @Override

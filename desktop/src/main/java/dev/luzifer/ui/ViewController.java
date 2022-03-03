@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.MessageFormat;
 
+/**
+ * Central point of contact for loading, connecting and opening View with its ViewModel.
+ */
 public class ViewController {
 
     private final Stage stage;
@@ -20,11 +23,21 @@ public class ViewController {
     public ViewController(Stage stage) {
         this.stage = stage;
     }
-
-    public void closeLatestView() {
+    
+    /**
+     * Closes the latest view
+     *
+     * @apiNote App will close if no other view is opened right after
+     */
+    public void closeLatestView(/* Might want to insert a callback with a View to open */) {
         stage.close();
     }
     
+    /**
+     * Opens the given {@link View} class to the end-user
+     * @param viewClass the class being opened
+     * @param parameters possible parameters just like the {@link ViewModel}
+     */
     public void showView(Class<? extends View> viewClass, Object... parameters) {
         loadAndShowView(viewClass, (Class<?> param) -> {
             

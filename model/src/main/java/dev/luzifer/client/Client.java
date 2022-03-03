@@ -10,6 +10,9 @@ public class Client {
         currentUser = user;
     }
     
+    /**
+     * @return the current logged-in user
+     */
     public static User getCurrentUser() {
         return currentUser;
     }
