@@ -45,10 +45,12 @@ public class LoginView extends View {
             throw new IllegalStateException("logo.png may not be null!");
         
         logoShape.setFill(new ImagePattern(new Image(logoURL.toExternalForm())));
+        pane.setBackground(new Background(convertPNGToBackgroundImage("background.png")));
     }
     
     @FXML
     void onButtonPress(ActionEvent event) {
         ((LoginViewModel) viewModel).tryLogin(PersonalToken.of(tokenField.getText())); // kinda ugly
     }
+
 }
