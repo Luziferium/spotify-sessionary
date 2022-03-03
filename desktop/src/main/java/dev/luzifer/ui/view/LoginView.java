@@ -14,6 +14,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 public class LoginView extends View {
@@ -42,7 +43,7 @@ public class LoginView extends View {
         
         URL logoURL = getClass().getClassLoader().getResource("logo.png");
         if(logoURL == null)
-            throw new IllegalStateException("logo.png may not be null!");
+            throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", "logo.png"));
         
         logoShape.setFill(new ImagePattern(new Image(logoURL.toExternalForm())));
         pane.setBackground(new Background(convertPNGToBackgroundImage("background.png")));
