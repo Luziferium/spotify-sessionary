@@ -14,7 +14,7 @@ import java.net.URL;
 import java.text.MessageFormat;
 
 /**
- * Central point of contact for loading, connecting and opening View with its ViewModel.
+ * Central point of contact for loading, connecting and opening {@link View} with its {@link ViewModel} - á la View-Controller.
  */
 public class ViewController {
 
