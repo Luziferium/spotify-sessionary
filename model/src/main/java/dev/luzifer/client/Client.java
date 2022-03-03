@@ -13,4 +13,6 @@ public class Client {
     public static User getCurrentUser() {
         return currentUser;
     }
+    
+    private Client() {} // not sure if this class stays static
 }

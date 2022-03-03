@@ -12,4 +12,6 @@ public class LoginHelper {
         return true;
     }
     
+    private LoginHelper() {}
+    
 }
