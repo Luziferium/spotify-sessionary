@@ -1,6 +1,9 @@
 package dev.luzifer.util;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Side;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -15,6 +18,19 @@ import java.net.URL;
 import java.text.MessageFormat;
 
 public class ImageHelper {
+    
+    public static void registerButtonImageChangeListener(Button button) {
+        
+        setBackgroundImage(button, "button_normal.png");
+        
+        button.pressedProperty().addListener(((observableValue, wasPressed, pressed) -> {
+            
+            if(pressed)
+                setBackgroundImage(button, "button_pressed.png");
+            else
+                setBackgroundImage(button, "button_normal.png");
+        }));
+    }
     
     public static void setFillImage(Shape shape, String imageName) {
         

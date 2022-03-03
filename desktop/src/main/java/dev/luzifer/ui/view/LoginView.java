@@ -41,6 +41,7 @@ public class LoginView extends View {
         
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");
+        ImageHelper.registerButtonImageChangeListener(loginButton);
     }
     
     @FXML
