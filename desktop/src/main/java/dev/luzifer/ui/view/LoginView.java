@@ -3,6 +3,7 @@ package dev.luzifer.ui.view;
 import dev.luzifer.ui.viewmodel.LoginViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
 import dev.luzifer.user.PersonalToken;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -12,7 +13,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
