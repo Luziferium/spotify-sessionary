@@ -39,7 +39,12 @@ public class LoginView extends View {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        logoShape.setFill(new ImagePattern(new Image(getClass().getClassLoader().getResource("logo.png").toExternalForm())));
+        
+        URL logoURL = getClass().getClassLoader().getResource("logo.png");
+        if(logoURL == null)
+            throw new IllegalStateException("logo.png may not be null!");
+        
+        logoShape.setFill(new ImagePattern(new Image(logoURL.toExternalForm())));
     }
     
     @FXML
