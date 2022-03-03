@@ -39,6 +39,10 @@ public class LoginView extends View {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         
+        LoginViewModel loginViewModel = (LoginViewModel) viewModel;
+        loginViewModel.getIpProperty().bindBidirectional(serverField.textProperty());
+        loginViewModel.getTokenProperty().bindBidirectional(tokenField.textProperty());
+        
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");
         ImageHelper.registerButtonImageChangeListener(loginButton);
@@ -46,7 +50,7 @@ public class LoginView extends View {
     
     @FXML
     void onButtonPress(ActionEvent event) {
-        ((LoginViewModel) viewModel).tryLogin(PersonalToken.of(tokenField.getText())); // kinda ugly
+        ((LoginViewModel) viewModel).tryLogin(); // kinda ugly
     }
 
 }

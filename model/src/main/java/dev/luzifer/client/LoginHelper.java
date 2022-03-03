@@ -17,6 +17,15 @@ public class LoginHelper {
         throw new UnsupportedOperationException("Not yet implemented");
     }
     
+    /**
+     * Connects the Client to the given IP if possible.
+     *
+     * At this point the Client will be set.
+     */
+    public static void connect(String ip) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+    
     private LoginHelper() {}
     
 }

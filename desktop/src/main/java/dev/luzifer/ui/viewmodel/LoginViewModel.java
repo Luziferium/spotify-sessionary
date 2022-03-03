@@ -3,12 +3,17 @@ package dev.luzifer.ui.viewmodel;
 import dev.luzifer.client.LoginHelper;
 import dev.luzifer.ui.ViewController;
 import dev.luzifer.user.PersonalToken;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
 
 /**
  * @see dev.luzifer.ui.view.View
  */
 public class LoginViewModel implements ViewModel {
+    
+    private final StringProperty ipProperty = new SimpleStringProperty();
+    private final StringProperty tokenProperty = new SimpleStringProperty();
     
     // Does this belong here?
     // Maybe redirect a callback?
@@ -18,12 +23,24 @@ public class LoginViewModel implements ViewModel {
         this.viewController = viewController;
     }
     
-    public void tryLogin(PersonalToken personalToken) {
+    public void tryLogin() {
     
-        if(LoginHelper.verifyLogin(personalToken))
-            viewController.closeLatestView();// TODO: open next view
-        else
+        if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {
+    
+            LoginHelper.connect(getIpProperty().get());
+            viewController.closeLatestView();
+            // TODO: open next view
+        } else {
             error("Not able to login");
+        }
+    }
+    
+    public StringProperty getIpProperty() {
+        return ipProperty;
+    }
+    
+    public StringProperty getTokenProperty() {
+        return tokenProperty;
     }
     
     private void error(String msg) {
