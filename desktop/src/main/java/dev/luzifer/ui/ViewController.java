@@ -35,7 +35,7 @@ public class ViewController {
             }
             
             throw new IllegalStateException("This shouldn't be!");
-        }, "Login");
+        }, viewClass.getSimpleName().substring(0, viewClass.getSimpleName().length() - 4));
     }
 
     private <T> void loadAndShowView(Class<T> clazz, Callback<Class<?>, Object> controllerFactory, String title) {
