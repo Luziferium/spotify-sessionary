@@ -44,6 +44,6 @@ public class LoginView extends View {
     
     @FXML
     void onButtonPress(ActionEvent event) {
-        ((LoginViewModel) viewModel).tryLogin(PersonalToken.of(tokenField.getText()));
+        ((LoginViewModel) viewModel).tryLogin(PersonalToken.of(tokenField.getText())); // kinda ugly
     }
 }
