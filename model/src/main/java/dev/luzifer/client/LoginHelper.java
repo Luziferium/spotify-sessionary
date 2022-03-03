@@ -8,7 +8,7 @@ public class LoginHelper {
     public static boolean verifyLogin(PersonalToken personalToken) {
         
         // TODO
-        Client.setCurrentUser(new User());
+        Client.setCurrentUser(new User(personalToken));
         return true;
     }
     
