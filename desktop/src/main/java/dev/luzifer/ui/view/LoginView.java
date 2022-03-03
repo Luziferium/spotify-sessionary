@@ -3,18 +3,16 @@ package dev.luzifer.ui.view;
 import dev.luzifer.ui.viewmodel.LoginViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
 import dev.luzifer.user.PersonalToken;
+import dev.luzifer.util.ImageHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
 public class LoginView extends View {
@@ -41,12 +39,8 @@ public class LoginView extends View {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         
-        URL logoURL = getClass().getClassLoader().getResource("logo.png");
-        if(logoURL == null)
-            throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", "logo.png"));
-        
-        logoShape.setFill(new ImagePattern(new Image(logoURL.toExternalForm())));
-        pane.setBackground(new Background(convertPNGToBackgroundImage("background.png")));
+        ImageHelper.setFillImage(logoShape, "logo.png");
+        ImageHelper.setBackgroundImage(pane, "background.png");
     }
     
     @FXML
