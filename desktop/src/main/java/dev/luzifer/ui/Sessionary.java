@@ -1,6 +1,7 @@
 package dev.luzifer.ui;
 
 import dev.luzifer.ui.view.LoginView;
+import dev.luzifer.ui.viewmodel.LoginViewModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,6 +11,6 @@ public class Sessionary extends Application {
     public void start(Stage primaryStage) {
 
         ViewController viewController = new ViewController(primaryStage);
-        viewController.showView(LoginView.class);
+        viewController.showView(LoginView.class, new LoginViewModel());
     }
 }

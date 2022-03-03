@@ -1,6 +1,7 @@
 package dev.luzifer.ui;
 
 import dev.luzifer.ui.view.View;
+import dev.luzifer.ui.viewmodel.ViewModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ public class ViewController {
         loadAndShowView(viewClass, (Class<?> param) -> {
             
             try {
-                return viewClass.getDeclaredConstructor().newInstance(parameters);
+                return viewClass.getDeclaredConstructor(ViewModel.class).newInstance(parameters);
             } catch (Exception e) {
                 e.printStackTrace();
             }
