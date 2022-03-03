@@ -21,6 +21,10 @@ public class ViewController {
         this.stage = stage;
     }
 
+    public void closeLatestView() {
+        stage.close();
+    }
+    
     public void showView(Class<? extends View> viewClass, Object... parameters) {
         loadAndShowView(viewClass, (Class<?> param) -> {
             
