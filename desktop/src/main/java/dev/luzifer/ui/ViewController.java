@@ -1,6 +1,6 @@
-package dev.luzifer.ui.view;
+package dev.luzifer.ui;
 
-import dev.luzifer.ui.view.views.LoginView;
+import dev.luzifer.ui.view.View;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +20,17 @@ public class ViewController {
         this.stage = stage;
     }
 
-    public void showLoginView() {
-        loadAndShowView(LoginView.class, (Class<?> param) -> new LoginView(), "Login");
+    public void showView(Class<? extends View> viewClass, Object... parameters) {
+        loadAndShowView(viewClass, (Class<?> param) -> {
+            
+            try {
+                return viewClass.getDeclaredConstructor().newInstance(parameters);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            throw new IllegalStateException("This shouldn't be!");
+        }, "Login");
     }
 
     private <T> void loadAndShowView(Class<T> clazz, Callback<Class<?>, Object> controllerFactory, String title) {
