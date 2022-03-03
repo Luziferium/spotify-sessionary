@@ -19,11 +19,11 @@ public class LoginViewModel implements ViewModel {
     }
     
     public void tryLogin(PersonalToken personalToken) {
-        
-        if(!LoginHelper.verifyLogin(personalToken))
-            error("Not able to login");
-        else
+    
+        if(LoginHelper.verifyLogin(personalToken))
             viewController.closeLatestView();// TODO: open next view
+        else
+            error("Not able to login");
     }
     
     private void error(String msg) {
