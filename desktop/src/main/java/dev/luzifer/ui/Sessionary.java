@@ -10,6 +10,6 @@ public class Sessionary extends Application {
     public void start(Stage primaryStage) {
 
         ViewController viewController = new ViewController(primaryStage);
-        // TODO:
+        viewController.showLoginView();
     }
 }

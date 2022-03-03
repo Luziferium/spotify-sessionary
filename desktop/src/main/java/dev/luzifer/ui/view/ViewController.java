@@ -1,5 +1,6 @@
 package dev.luzifer.ui.view;
 
+import dev.luzifer.ui.view.views.LoginView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +18,10 @@ public class ViewController {
 
     public ViewController(Stage stage) {
         this.stage = stage;
+    }
+
+    public void showLoginView() {
+        loadAndShowView(LoginView.class, (Class<?> param) -> new LoginView(), "Login");
     }
 
     private <T> void loadAndShowView(Class<T> clazz, Callback<Class<?>, Object> controllerFactory, String title) {
