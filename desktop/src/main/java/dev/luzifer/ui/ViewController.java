@@ -43,7 +43,7 @@ public class ViewController {
         loadAndShowView(viewClass, (Class<?> param) -> {
             
             try {
-                return viewClass.getDeclaredConstructor(ViewModel.class).newInstance(parameters);
+                return viewClass.getDeclaredConstructor(ViewModel.class).newInstance(parameters); // prob. overdo to give in parameterS. ViewModel should be enough
             } catch (Exception e) {
                 e.printStackTrace();
             }
