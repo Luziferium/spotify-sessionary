@@ -47,7 +47,7 @@ public class LoginView extends View {
         loginViewModel.getTokenProperty().bindBidirectional(tokenField.textProperty());
         loginViewModel.getLabelProperty().bindBidirectional(informationLabel.textProperty());
 
-        loginButton.disableProperty().bind(loginViewModel.getSubmitProperty().not());
+        loginButton.disableProperty().bind(loginViewModel.allowedToSubmitProperty().not());
 
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");
