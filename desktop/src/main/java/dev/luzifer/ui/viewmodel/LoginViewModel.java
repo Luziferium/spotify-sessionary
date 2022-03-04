@@ -1,24 +1,30 @@
 package dev.luzifer.ui.viewmodel;
 
 import dev.luzifer.client.LoginHelper;
+import dev.luzifer.ui.util.PropertyNotNullChecker;
 import dev.luzifer.user.PersonalToken;
+import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.control.Alert;
 
 /**
  * @see dev.luzifer.ui.view.View
  */
 public class LoginViewModel implements ViewModel {
-    
+
     private final StringProperty ipProperty = new SimpleStringProperty();
     private final StringProperty tokenProperty = new SimpleStringProperty();
     private final StringProperty labelProperty = new SimpleStringProperty();
-    
+
+    private final PropertyNotNullChecker propertyNotNullChecker = new PropertyNotNullChecker();
+
     private final Runnable callback;
     
     public LoginViewModel(Runnable callback) {
+
         this.callback = callback;
+
+        propertyNotNullChecker.addProperties(ipProperty, tokenProperty);
     }
     
     /**
@@ -35,7 +41,11 @@ public class LoginViewModel implements ViewModel {
             labelProperty.setValue("Token is invalid!");
         }
     }
-    
+
+    public ReadOnlyBooleanProperty submitable() {
+        return propertyNotNullChecker.propertiesNotNullProperty();
+    }
+
     public StringProperty getIpProperty() {
         return ipProperty;
     }

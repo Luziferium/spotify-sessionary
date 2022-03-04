@@ -1,4 +1,4 @@
-package dev.luzifer.util;
+package dev.luzifer.ui.util;
 
 import javafx.geometry.Side;
 import javafx.scene.control.Button;

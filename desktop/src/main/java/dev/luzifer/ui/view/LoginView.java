@@ -2,14 +2,14 @@ package dev.luzifer.ui.view;
 
 import dev.luzifer.ui.viewmodel.LoginViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
-import dev.luzifer.util.ImageHelper;
+import dev.luzifer.ui.util.ImageHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 import java.net.URL;
@@ -46,9 +46,13 @@ public class LoginView extends View {
         loginViewModel.getIpProperty().bindBidirectional(serverField.textProperty());
         loginViewModel.getTokenProperty().bindBidirectional(tokenField.textProperty());
         loginViewModel.getLabelProperty().bindBidirectional(informationLabel.textProperty());
-        
+
+        loginButton.disableProperty().bind(loginViewModel.submitable().not());
+
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");
+        ImageHelper.setBackgroundImage(serverField, "textfield.png");
+        ImageHelper.setBackgroundImage(tokenField, "textfield.png");
         ImageHelper.registerButtonImageChangeListener(loginButton);
     }
     
