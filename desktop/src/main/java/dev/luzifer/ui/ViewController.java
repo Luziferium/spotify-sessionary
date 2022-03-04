@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -61,6 +62,7 @@ public class ViewController {
         Scene scene = new Scene(root);
 
         stage.getIcons().addAll(new Image("logo.png"));
+        stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.setTitle(title);
         stage.setResizable(false);
