@@ -1,7 +1,6 @@
 package dev.luzifer.ui.viewmodel;
 
 import dev.luzifer.client.LoginHelper;
-import dev.luzifer.ui.ViewController;
 import dev.luzifer.user.PersonalToken;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -15,8 +14,6 @@ public class LoginViewModel implements ViewModel {
     private final StringProperty ipProperty = new SimpleStringProperty();
     private final StringProperty tokenProperty = new SimpleStringProperty();
     
-    // Does this belong here?
-    // Maybe redirect a callback?
     private final Runnable callback;
     
     public LoginViewModel(Runnable callback) {
