@@ -20,6 +20,11 @@ public class LoginViewModel implements ViewModel {
         this.callback = callback;
     }
     
+    /**
+     * Tries to verify the given {@link PersonalToken} and, if successful, to connect to the server with the given IP.
+     *
+     * Shows an error-dialog if the login could not be verified.
+     */
     public void tryLogin() {
     
         if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {

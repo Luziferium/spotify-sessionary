@@ -17,6 +17,12 @@ import java.text.MessageFormat;
 
 public class ImageHelper {
     
+    /**
+     * This method applies a listener to the button whose check if the button has been pressed or released.
+     * If the listener is being fired the button will hold a new {@link BackgroundImage} corresponding to the made action.
+     *
+     * @param button the button the listener is applied on
+     */
     public static void registerButtonImageChangeListener(Button button) {
         
         setBackgroundImage(button, "button_normal.png");
@@ -30,6 +36,10 @@ public class ImageHelper {
         }));
     }
     
+    /**
+     * This method does set an {@link ImagePattern} as fill of a {@link Shape}.
+     * Means the background is being set.
+     */
     public static void setFillImage(Shape shape, String imageName) {
         
         URL url = ImageHelper.class.getClassLoader().getResource("logo.png");
@@ -40,6 +50,9 @@ public class ImageHelper {
         shape.setFill(new ImagePattern(image));
     }
     
+    /**
+     * This method sets the {@link BackgroundImage} of a {@link Region}, means Buttons, Panes, Fields etc.
+     */
     public static void setBackgroundImage(Region region, String imageName) {
         region.setBackground(new Background(convertPNGToBackgroundImage(imageName)));
     }
