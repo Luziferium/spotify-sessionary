@@ -59,4 +59,6 @@ public class ImageHelper {
         );
     }
     
+    private ImageHelper() {}
+    
 }
