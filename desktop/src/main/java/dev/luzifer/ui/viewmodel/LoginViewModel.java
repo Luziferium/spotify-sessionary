@@ -17,10 +17,10 @@ public class LoginViewModel implements ViewModel {
     
     // Does this belong here?
     // Maybe redirect a callback?
-    private final ViewController viewController;
+    private final Runnable callback;
     
-    public LoginViewModel(ViewController viewController) {
-        this.viewController = viewController;
+    public LoginViewModel(Runnable callback) {
+        this.callback = callback;
     }
     
     public void tryLogin() {
@@ -28,7 +28,7 @@ public class LoginViewModel implements ViewModel {
         if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {
     
             LoginHelper.connect(getIpProperty().get());
-            viewController.closeLatestView();
+            callback.run();
             // TODO: open next view
         } else {
             error("Not able to login");

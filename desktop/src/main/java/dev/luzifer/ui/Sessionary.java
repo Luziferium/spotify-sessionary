@@ -14,6 +14,9 @@ public class Sessionary extends Application {
     public void start(Stage primaryStage) {
 
         ViewController viewController = new ViewController(primaryStage);
-        viewController.showView(LoginView.class, new LoginViewModel(viewController));
+        viewController.showView(LoginView.class, new LoginViewModel(() -> {
+            viewController.closeLatestView();
+            // TODO show next view
+        }));
     }
 }
