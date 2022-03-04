@@ -1,8 +1,6 @@
 package dev.luzifer.ui.viewmodel;
 
-import dev.luzifer.client.LoginHelper;
 import dev.luzifer.ui.util.PropertyNotNullChecker;
-import dev.luzifer.user.PersonalToken;
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,7 +11,7 @@ import javafx.beans.property.StringProperty;
 public class LoginViewModel implements ViewModel {
 
     private final StringProperty ipProperty = new SimpleStringProperty();
-    private final StringProperty tokenProperty = new SimpleStringProperty();
+    private final StringProperty usernameProperty = new SimpleStringProperty();
     private final StringProperty labelProperty = new SimpleStringProperty();
 
     private final PropertyNotNullChecker propertyNotNullChecker = new PropertyNotNullChecker();
@@ -24,24 +22,19 @@ public class LoginViewModel implements ViewModel {
 
         this.callback = callback;
 
-        propertyNotNullChecker.addProperties(ipProperty, tokenProperty);
+        propertyNotNullChecker.addProperties(ipProperty, usernameProperty);
+    }
+
+    public void tryConnect() {
+        // TODO
+        /*
+        if true
+            > callback
+        else
+            change label text
+         */
     }
     
-    /**
-     * Tries to verify the given {@link PersonalToken} and, if successful, to connect to the server with the given IP.
-     *
-     * Shows an error-dialog if the login could not be verified.
-     */
-    public void tryLogin() {
-
-        if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {
-            LoginHelper.connect(getIpProperty().get());
-            callback.run();
-        } else {
-            labelProperty.setValue("Token is invalid!");
-        }
-    }
-
     public ReadOnlyBooleanProperty allowedToSubmitProperty() {
         return propertyNotNullChecker.propertiesNotNullProperty();
     }
@@ -50,8 +43,8 @@ public class LoginViewModel implements ViewModel {
         return ipProperty;
     }
     
-    public StringProperty getTokenProperty() {
-        return tokenProperty;
+    public StringProperty getUsernameProperty() {
+        return usernameProperty;
     }
 
     public StringProperty getLabelProperty() {

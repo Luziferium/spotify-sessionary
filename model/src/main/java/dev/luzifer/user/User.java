@@ -4,11 +4,11 @@ import java.sql.Timestamp;
 
 public class User {
     
-    private final PersonalToken token;
+    private final String username;
     private final Timestamp loginStamp;
     
-    public User(PersonalToken token) {
-        this.token = token;
+    public User(String username) {
+        this.username = username;
         this.loginStamp = new Timestamp(System.currentTimeMillis());
     }
 }

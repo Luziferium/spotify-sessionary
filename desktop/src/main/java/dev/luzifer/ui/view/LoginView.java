@@ -27,7 +27,7 @@ public class LoginView extends View {
     private TextField serverField;
     
     @FXML
-    private PasswordField tokenField;
+    private PasswordField usernameField;
 
     @FXML
     private Label informationLabel;
@@ -44,7 +44,7 @@ public class LoginView extends View {
         
         LoginViewModel loginViewModel = (LoginViewModel) viewModel;
         loginViewModel.getIpProperty().bindBidirectional(serverField.textProperty());
-        loginViewModel.getTokenProperty().bindBidirectional(tokenField.textProperty());
+        loginViewModel.getUsernameProperty().bindBidirectional(usernameField.textProperty());
         loginViewModel.getLabelProperty().bindBidirectional(informationLabel.textProperty());
 
         loginButton.disableProperty().bind(loginViewModel.allowedToSubmitProperty().not());
@@ -52,13 +52,13 @@ public class LoginView extends View {
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");
         ImageHelper.setBackgroundImage(serverField, "textfield.png");
-        ImageHelper.setBackgroundImage(tokenField, "textfield.png");
+        ImageHelper.setBackgroundImage(usernameField, "textfield.png");
         ImageHelper.registerButtonImageChangeListener(loginButton);
     }
     
     @FXML
     void onButtonPress(ActionEvent event) {
-        ((LoginViewModel) viewModel).tryLogin(); // kinda ugly
+        ((LoginViewModel) viewModel).tryConnect(); // kinda ugly
     }
 
 }
