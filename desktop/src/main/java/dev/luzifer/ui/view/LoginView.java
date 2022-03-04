@@ -2,7 +2,6 @@ package dev.luzifer.ui.view;
 
 import dev.luzifer.ui.viewmodel.LoginViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
-import dev.luzifer.user.PersonalToken;
 import dev.luzifer.util.ImageHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
