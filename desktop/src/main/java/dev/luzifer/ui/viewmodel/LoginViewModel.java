@@ -29,12 +29,9 @@ public class LoginViewModel implements ViewModel {
     public void tryLogin() {
 
         if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {
-
             LoginHelper.connect(getIpProperty().get());
             callback.run();
         } else {
-
-            error("Not able to login");
             labelProperty.setValue("Token is invalid!");
         }
     }
@@ -51,12 +48,4 @@ public class LoginViewModel implements ViewModel {
         return labelProperty;
     }
 
-    private void error(String msg) {
-        
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("AN ERROR OCCURRED");
-        alert.setContentText(msg);
-        alert.showAndWait();
-    }
-    
 }
