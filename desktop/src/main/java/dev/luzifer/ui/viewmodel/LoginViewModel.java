@@ -26,7 +26,6 @@ public class LoginViewModel implements ViewModel {
     
             LoginHelper.connect(getIpProperty().get());
             callback.run();
-            // TODO: open next view
         } else {
             error("Not able to login");
         }
