@@ -40,11 +40,11 @@ public class ViewController {
      * @param viewClass the class being opened
      * @param parameters possible parameters just like the {@link ViewModel}
      */
-    public void showView(Class<? extends View> viewClass, Object... parameters) {
+    public void showView(Class<? extends View> viewClass, ViewModel viewModel) {
         loadAndShowView(viewClass, (Class<?> param) -> {
             
             try {
-                return viewClass.getDeclaredConstructor(ViewModel.class).newInstance(parameters); // prob. overdo to give in parameterS. ViewModel should be enough
+                return viewClass.getDeclaredConstructor(ViewModel.class).newInstance(viewModel);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -62,7 +62,6 @@ public class ViewController {
         Scene scene = new Scene(root);
 
         stage.getIcons().addAll(new Image("logo.png"));
-        stage.initStyle(StageStyle.UTILITY);
         stage.setScene(scene);
         stage.setTitle(title);
         stage.setResizable(false);

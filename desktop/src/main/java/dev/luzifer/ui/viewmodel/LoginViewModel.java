@@ -33,6 +33,7 @@ public class LoginViewModel implements ViewModel {
         else
             change label text
          */
+        callback.run();
     }
     
     public ReadOnlyBooleanProperty allowedToSubmitProperty() {
