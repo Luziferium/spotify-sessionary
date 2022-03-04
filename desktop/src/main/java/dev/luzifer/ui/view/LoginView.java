@@ -6,6 +6,7 @@ import dev.luzifer.util.ImageHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -27,6 +28,9 @@ public class LoginView extends View {
     
     @FXML
     private PasswordField tokenField;
+
+    @FXML
+    private Label informationLabel;
     
     @FXML
     private Button loginButton;
@@ -41,6 +45,7 @@ public class LoginView extends View {
         LoginViewModel loginViewModel = (LoginViewModel) viewModel;
         loginViewModel.getIpProperty().bindBidirectional(serverField.textProperty());
         loginViewModel.getTokenProperty().bindBidirectional(tokenField.textProperty());
+        loginViewModel.getLabelProperty().bindBidirectional(informationLabel.textProperty());
         
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setBackgroundImage(pane, "background.png");

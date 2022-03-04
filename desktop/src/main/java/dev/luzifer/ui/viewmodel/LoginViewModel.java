@@ -13,6 +13,7 @@ public class LoginViewModel implements ViewModel {
     
     private final StringProperty ipProperty = new SimpleStringProperty();
     private final StringProperty tokenProperty = new SimpleStringProperty();
+    private final StringProperty labelProperty = new SimpleStringProperty();
     
     private final Runnable callback;
     
@@ -26,13 +27,15 @@ public class LoginViewModel implements ViewModel {
      * Shows an error-dialog if the login could not be verified.
      */
     public void tryLogin() {
-    
+
         if(LoginHelper.verifyLogin(PersonalToken.of(getTokenProperty().get()))) {
-    
+
             LoginHelper.connect(getIpProperty().get());
             callback.run();
         } else {
+
             error("Not able to login");
+            labelProperty.setValue("Token is invalid!");
         }
     }
     
@@ -43,7 +46,11 @@ public class LoginViewModel implements ViewModel {
     public StringProperty getTokenProperty() {
         return tokenProperty;
     }
-    
+
+    public StringProperty getLabelProperty() {
+        return labelProperty;
+    }
+
     private void error(String msg) {
         
         Alert alert = new Alert(Alert.AlertType.ERROR);
