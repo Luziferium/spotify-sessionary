@@ -42,7 +42,7 @@ public class LoginViewModel implements ViewModel {
         }
     }
 
-    public ReadOnlyBooleanProperty submitable() {
+    public ReadOnlyBooleanProperty getSubmitProperty() {
         return propertyNotNullChecker.propertiesNotNullProperty();
     }
 
