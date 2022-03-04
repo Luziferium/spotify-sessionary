@@ -35,6 +35,7 @@ public class ViewController {
     
     /**
      * Opens the given {@link View} class to the end-user
+     *
      * @param viewClass the class being opened
      * @param parameters possible parameters just like the {@link ViewModel}
      */
