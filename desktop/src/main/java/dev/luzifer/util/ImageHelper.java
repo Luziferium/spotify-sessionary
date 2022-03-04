@@ -36,7 +36,8 @@ public class ImageHelper {
         if(url == null)
             throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", imageName));
     
-        shape.setFill(new ImagePattern(new Image(url.toExternalForm())));
+        Image image = getImageByURL(fetchResourceAsURL(imageName));
+        shape.setFill(new ImagePattern(image));
     }
     
     public static void setBackgroundImage(Region region, String imageName) {
@@ -45,11 +46,7 @@ public class ImageHelper {
     
     private static BackgroundImage convertPNGToBackgroundImage(String name) {
         
-        URL url = ImageHelper.class.getClassLoader().getResource(name);
-        if(url == null)
-            throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", name));
-        
-        Image image = new Image(url.toExternalForm());
+        Image image = getImageByURL(fetchResourceAsURL(name));
         
         return new BackgroundImage(
                 image,
@@ -57,6 +54,19 @@ public class ImageHelper {
                 new BackgroundPosition(Side.LEFT, 0, true, Side.BOTTOM, 0, true),
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, false, true)
         );
+    }
+    
+    private static Image getImageByURL(URL url) {
+        return new Image(url.toExternalForm());
+    }
+    
+    private static URL fetchResourceAsURL(String name) {
+    
+        URL url = ImageHelper.class.getClassLoader().getResource(name);
+        if(url == null)
+            throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", name));
+        
+        return url;
     }
     
     private ImageHelper() {}
