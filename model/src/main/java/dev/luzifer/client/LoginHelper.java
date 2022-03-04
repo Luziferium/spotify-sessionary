@@ -6,14 +6,11 @@ public class LoginHelper {
     
     /**
      * Tries to verify the {@link PersonalToken} and therewith login the user.
+     * {@link Client#getCurrentUser()} is being set here
      *
      * @return whether the token could be verified or not
      */
     public static boolean verifyLogin(PersonalToken personalToken) {
-        /*
-        Client.setCurrentUser(new User(personalToken));
-        return true;
-         */
         throw new UnsupportedOperationException("Not yet implemented");
     }
     
