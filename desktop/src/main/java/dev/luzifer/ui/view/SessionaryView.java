@@ -4,7 +4,6 @@ import dev.luzifer.ui.util.ImageHelper;
 import dev.luzifer.ui.viewmodel.ViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
@@ -24,7 +23,7 @@ public class SessionaryView extends View {
     private ProgressBar songProgress;
     
     @FXML
-    private Button playPauseButton;
+    private Circle playPauseButtonShape;
     
     @FXML
     private Circle logoShape;
@@ -49,7 +48,8 @@ public class SessionaryView extends View {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         
         ImageHelper.setFillImage(logoShape, "logo.png");
-        ImageHelper.setBackgroundImage(pane, "background.png");
+        ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png");
+        ImageHelper.setBackgroundImage(pane, "sessionary_background.png");
     }
     
     @FXML

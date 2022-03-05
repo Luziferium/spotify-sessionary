@@ -49,7 +49,7 @@ public class LoginView extends View {
         loginButton.disableProperty().bind(loginViewModel.allowedToSubmitProperty().not());
 
         ImageHelper.setFillImage(logoShape, "logo.png");
-        ImageHelper.setBackgroundImage(pane, "background.png");
+        ImageHelper.setBackgroundImage(pane, "login_background.png");
         ImageHelper.setBackgroundImage(serverField, "textfield.png");
         ImageHelper.setBackgroundImage(usernameField, "textfield.png");
         ImageHelper.registerButtonImageChangeListener(loginButton);
