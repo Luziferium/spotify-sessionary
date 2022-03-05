@@ -25,14 +25,14 @@ public class ImageHelper {
      */
     public static void registerButtonImageChangeListener(Button button) {
         
-        setBackgroundImage(button, "button_normal.png");
+        setBackgroundImage(button, "images/button_normal.png");
         
         button.pressedProperty().addListener(((observableValue, wasPressed, pressed) -> {
             
             if(pressed)
-                setBackgroundImage(button, "button_pressed.png");
+                setBackgroundImage(button, "images/button_pressed.png");
             else
-                setBackgroundImage(button, "button_normal.png");
+                setBackgroundImage(button, "images/button_normal.png");
         }));
     }
     
@@ -42,7 +42,7 @@ public class ImageHelper {
      */
     public static void setFillImage(Shape shape, String imageName) {
         
-        URL url = ImageHelper.class.getClassLoader().getResource("logo.png");
+        URL url = ImageHelper.class.getClassLoader().getResource("images/logo.png");
         if(url == null)
             throw new IllegalStateException(MessageFormat.format("A resource with this name could not be found: {0}", imageName));
     

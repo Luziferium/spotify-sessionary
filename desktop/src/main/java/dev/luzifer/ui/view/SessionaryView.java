@@ -53,10 +53,10 @@ public class SessionaryView extends View {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     
-        ImageHelper.setFillImage(logoShape, "logo.png");
-        ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png"); // TODO: pressedPropertyListener
-        ImageHelper.setBackgroundImage(pane, "sessionary_background.png");
-        ImageHelper.setBackgroundImage(vBox, "sessionary_list_background.png");
+        ImageHelper.setFillImage(logoShape, "images/logo.png");
+        ImageHelper.setFillImage(playPauseButtonShape, "images/playLogo.png"); // TODO: pressedPropertyListener
+        ImageHelper.setBackgroundImage(pane, "images/sessionary_background.png");
+        ImageHelper.setBackgroundImage(vBox, "images/sessionary_list_background.png");
         
         addContextMenu();
     }
@@ -98,7 +98,7 @@ public class SessionaryView extends View {
                 return;
             }
         
-            Label label = new Label(textInputDialog.getResult(), new ImageView("songicon.png"));
+            Label label = new Label(textInputDialog.getResult(), new ImageView("images/songicon.png"));
             label.setTextFill(Color.WHEAT);
             label.setFont(new Font("Arial", 18));
         
