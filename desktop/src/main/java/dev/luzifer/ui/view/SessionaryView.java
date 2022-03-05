@@ -51,9 +51,4 @@ public class SessionaryView extends View {
         ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png"); // TODO: pressedPropertyListener
         ImageHelper.setBackgroundImage(pane, "sessionary_background.png");
     }
-    
-    @FXML
-    void onButtonPress(ActionEvent event) {
-    
-    }
 }
