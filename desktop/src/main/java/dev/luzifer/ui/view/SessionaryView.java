@@ -2,13 +2,12 @@ package dev.luzifer.ui.view;
 
 import dev.luzifer.ui.util.ImageHelper;
 import dev.luzifer.ui.viewmodel.ViewModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
@@ -32,7 +31,7 @@ public class SessionaryView extends View {
     private Label nameLabel;
     
     @FXML
-    private ListView<?> playlistList;
+    private VBox vBox;
     
     @FXML
     private Separator verticalSeparator;
@@ -50,5 +49,6 @@ public class SessionaryView extends View {
         ImageHelper.setFillImage(logoShape, "logo.png");
         ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png"); // TODO: pressedPropertyListener
         ImageHelper.setBackgroundImage(pane, "sessionary_background.png");
+        ImageHelper.setBackgroundImage(vBox, "sessionary_list_background.png");
     }
 }

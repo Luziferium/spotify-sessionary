@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -18,8 +18,8 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="playlistList" layoutX="211.0" layoutY="30.0" prefHeight="407.0" prefWidth="596.0" />
-      <Separator fx:id="verticalSeparator" layoutX="180.0" orientation="VERTICAL" prefHeight="467.0" prefWidth="4.0" />
-      <Separator fx:id="horizontalSeparator" layoutX="-5.0" layoutY="463.0" prefHeight="9.0" prefWidth="844.0" />
+      <Separator fx:id="verticalSeparator" layoutX="180.0" orientation="VERTICAL" prefHeight="467.0" prefWidth="0.0" />
+      <Separator fx:id="horizontalSeparator" layoutX="-5.0" layoutY="463.0" prefHeight="0.0" prefWidth="844.0" />
+      <VBox fx:id="vBox" layoutX="211.0" layoutY="30.0" prefHeight="407.0" prefWidth="596.0" />
    </children>
 </Pane>
