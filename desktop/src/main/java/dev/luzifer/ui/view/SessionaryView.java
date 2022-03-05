@@ -46,9 +46,9 @@ public class SessionaryView extends View {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+    
         ImageHelper.setFillImage(logoShape, "logo.png");
-        ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png");
+        ImageHelper.setFillImage(playPauseButtonShape, "playLogo.png"); // TODO: pressedPropertyListener
         ImageHelper.setBackgroundImage(pane, "sessionary_background.png");
     }
     
