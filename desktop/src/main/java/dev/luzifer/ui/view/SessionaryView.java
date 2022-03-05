@@ -98,7 +98,7 @@ public class SessionaryView extends View {
                 return;
             }
         
-            Label label = new Label(textInputDialog.getResult(), new ImageView("images/songicon.png"));
+            Label label = new Label(textInputDialog.getResult(), new ImageView("images/song_icon.png"));
             label.setTextFill(Color.WHEAT);
             label.setFont(new Font("Arial", 18));
         
