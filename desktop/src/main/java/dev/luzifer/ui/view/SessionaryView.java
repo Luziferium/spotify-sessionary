@@ -1,7 +1,6 @@
 package dev.luzifer.ui.view;
 
 import dev.luzifer.ui.util.ImageHelper;
-import dev.luzifer.ui.viewmodel.SessionaryViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
