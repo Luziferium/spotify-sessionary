@@ -1,6 +1,7 @@
 package dev.luzifer.ui.view;
 
 import dev.luzifer.ui.util.ImageHelper;
+import dev.luzifer.ui.viewmodel.SessionaryViewModel;
 import dev.luzifer.ui.viewmodel.ViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -38,7 +39,10 @@ public class SessionaryView extends View {
     private Label nameLabel;
     
     @FXML
-    private VBox vBox;
+    private VBox playlistVBox;
+    
+    @FXML
+    private VBox userVBox;
     
     @FXML
     private Separator verticalSeparator;
@@ -56,8 +60,13 @@ public class SessionaryView extends View {
         ImageHelper.setFillImage(logoShape, "images/logo.png");
         ImageHelper.setFillImage(playPauseButtonShape, "images/playLogo.png"); // TODO: pressedPropertyListener
         ImageHelper.setBackgroundImage(pane, "images/sessionary_background.png");
-        ImageHelper.setBackgroundImage(vBox, "images/sessionary_list_background.png");
+        ImageHelper.setBackgroundImage(playlistVBox, "images/sessionary_list_background.png");
         
+        Label label = new Label("User", new ImageView("images/user_icon.png"));
+        label.setTextFill(Color.WHEAT);
+        label.setFont(new Font("Arial", 16));
+        
+        userVBox.getChildren().add(label);
         addContextMenu();
     }
     
@@ -71,7 +80,7 @@ public class SessionaryView extends View {
     
         menuItem.setOnAction(actionEvent -> showSongLinkInputDialog());
     
-        vBox.setOnContextMenuRequested(contextMenuEvent -> contextMenu.show(pane, contextMenuEvent.getScreenX(), contextMenuEvent.getScreenY()));
+        playlistVBox.setOnContextMenuRequested(contextMenuEvent -> contextMenu.show(pane, contextMenuEvent.getScreenX(), contextMenuEvent.getScreenY()));
     }
     
     private void showMaxSongsReachedAlert() {
@@ -92,7 +101,7 @@ public class SessionaryView extends View {
         textInputDialog.setGraphic(null);
         textInputDialog.setOnCloseRequest(dialogEvent -> {
         
-            if(vBox.getChildren().size() >= 12) {
+            if(playlistVBox.getChildren().size() >= 12) {
             
                 showMaxSongsReachedAlert();
                 return;
@@ -101,8 +110,8 @@ public class SessionaryView extends View {
             Label label = new Label(textInputDialog.getResult(), new ImageView("images/song_icon.png"));
             label.setTextFill(Color.WHEAT);
             label.setFont(new Font("Arial", 18));
-        
-            vBox.getChildren().add(label);
+    
+            playlistVBox.getChildren().add(label);
         });
         textInputDialog.show();
     }

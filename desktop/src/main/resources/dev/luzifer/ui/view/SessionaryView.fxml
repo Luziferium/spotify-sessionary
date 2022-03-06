@@ -20,6 +20,7 @@
       </Label>
       <Separator fx:id="verticalSeparator" focusTraversable="false" layoutX="181.0" opacity="0.35" orientation="VERTICAL" prefHeight="464.0" prefWidth="4.0" />
       <Separator fx:id="horizontalSeparator" focusTraversable="false" layoutX="-5.0" layoutY="463.0" opacity="0.35" prefHeight="0.0" prefWidth="844.0" />
-      <VBox fx:id="vBox" layoutX="211.0" layoutY="30.0" prefHeight="407.0" prefWidth="596.0" />
+      <VBox fx:id="playlistVBox" layoutX="211.0" layoutY="30.0" prefHeight="407.0" prefWidth="596.0" />
+      <VBox fx:id="userVBox" layoutX="23.0" layoutY="80.0" prefHeight="363.0" prefWidth="142.0" />
    </children>
 </Pane>
