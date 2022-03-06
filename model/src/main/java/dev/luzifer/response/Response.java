@@ -6,7 +6,7 @@ public class Response<T> {
     
     private final T value;
     
-    private String customResponseMessage;
+    private String message;
     
     public Response(T t) {
         this.value = t;
@@ -14,15 +14,15 @@ public class Response<T> {
     
     public Response(T t, String customResponseMessage) {
         this.value = t;
-        this.customResponseMessage = customResponseMessage;
+        this.message = customResponseMessage;
     }
     
-    public void setCustomResponseMessage(String customResponseMessage) {
-        this.customResponseMessage = customResponseMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
     
-    public String getCustomResponseMessage() {
-        return customResponseMessage;
+    public String getMessage() {
+        return message;
     }
     
     public Optional<T> getValueWrapped() {
