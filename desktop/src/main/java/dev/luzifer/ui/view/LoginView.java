@@ -57,7 +57,7 @@ public class LoginView extends View {
     
     @FXML
     void onButtonPress(ActionEvent event) {
-        ((LoginViewModel) viewModel).tryConnect(); // kinda ugly
+        ((LoginViewModel) viewModel).tryConnect();
     }
 
 }
