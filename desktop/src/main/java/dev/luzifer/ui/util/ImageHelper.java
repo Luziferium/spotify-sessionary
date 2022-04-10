@@ -29,7 +29,7 @@ public class ImageHelper {
         
         button.pressedProperty().addListener(((observableValue, wasPressed, pressed) -> {
             
-            if(pressed)
+            if(Boolean.TRUE.equals(pressed))
                 setBackgroundImage(button, "images/button_pressed.png");
             else
                 setBackgroundImage(button, "images/button_normal.png");
